@@ -2,7 +2,6 @@
 
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { fadeIn, staggerContainer, scaleIn } from "../app/animations";
 import { useState, useEffect } from "react";
 
 const TIMELINE_STEPS = [
@@ -214,7 +213,7 @@ const CountdownTimer = () => {
 };
 
 export default function Home() {
-  const [activeStep, setActiveStep] = useState(0);
+  const [activeStep] = useState(0);
 
   return (
     <div className="min-h-screen bg-[#FAFAFA]">
