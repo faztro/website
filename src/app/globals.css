@@ -5,17 +5,26 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --primary-dark: #032a2c;
+  --primary-light: #00afa1;
 }
 
 body {
   color: var(--foreground);
   background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-geist), system-ui, sans-serif;
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .gradient-primary {
+    @apply bg-gradient-to-r from-[#032A2C] to-[#00AFA1];
+  }
+
+  .text-gradient {
+    @apply bg-gradient-to-r from-[#032A2C] to-[#00AFA1] bg-clip-text text-transparent;
+  }
 }
