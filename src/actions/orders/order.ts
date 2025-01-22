@@ -17,9 +17,6 @@ type OrderResponse = {
 
 export async function createOrder(order: Order): Promise<OrderResponse> {
   try {
-    console.log(process.env.NEXT_PUBLIC_EMAIL_USER);
-    console.log(process.env.NEXT_PUBLIC_EMAIL_APP_PASSWORD);
-    // Create reusable transporter object using SMTP transport
     const transporter = nodemailer.createTransport({
       host: "smtp.zoho.in",
       port: 465,
@@ -47,10 +44,6 @@ export async function createOrder(order: Order): Promise<OrderResponse> {
         <p><strong>Delivery Address:</strong><br>${order.delivery}</p>
       `,
     };
-
-    // Send mail with defined transport object
-    const info = await transporter.sendMail(mailOptions);
-    console.log("Email sent successfully:", info.messageId);
 
     return {
       success: true,
