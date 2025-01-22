@@ -16,28 +16,28 @@ const TIMELINE_STEPS = [
     title: "Post Your Request",
     description: "Share details of what needs to be delivered",
     align: "right",
-    icon: "/icons/order.png",
+    icon: "/icons/orders.svg",
   },
   {
     step: "2",
     title: "Meet Your Local Hero",
     description: "Get matched with a trusted delivery partner nearby",
     align: "left",
-    icon: "/icons/location.png",
+    icon: "/icons/location.svg",
   },
   {
     step: "3",
     title: "Track in Real Time",
     description: "Watch your delivery's journey every step of the way",
     align: "right",
-    icon: "/icons/clock.png",
+    icon: "/icons/clock.svg",
   },
   {
     step: "4",
     title: "Pay & Rate",
     description: "Enjoy secure payment options and share your feedback",
     align: "left",
-    icon: "/icons/delivery.png",
+    icon: "/icons/delivery.svg",
   },
 ];
 
@@ -141,6 +141,15 @@ const CountdownTimer = () => {
 
 export default function Home() {
   const [activeStep] = useState(0);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
+  const scrollToSection = (sectionId: string) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" });
+    }
+    setIsMobileMenuOpen(false);
+  };
 
   return (
     <div className="min-h-screen bg-[#FAFAFA]">
@@ -169,15 +178,30 @@ export default function Home() {
               </span>
             </div>
             <div className="hidden md:flex items-center space-x-8">
-              <button className="text-gray-800 hover:text-[#00AFA1] transition-colors font-medium">
+              <button
+                onClick={() => scrollToSection("about")}
+                className="text-gray-800 hover:text-[#00AFA1] transition-colors font-medium"
+              >
+                About
+              </button>
+              <button
+                onClick={() => scrollToSection("services")}
+                className="text-gray-800 hover:text-[#00AFA1] transition-colors font-medium"
+              >
+                Services
+              </button>
+              <button
+                onClick={() => scrollToSection("how-it-works")}
+                className="text-gray-800 hover:text-[#00AFA1] transition-colors font-medium"
+              >
                 How it Works
               </button>
-              <button className="text-gray-800 hover:text-[#00AFA1] transition-colors font-medium">
-                Features
-              </button>
-              <button className="text-gray-800 hover:text-[#00AFA1] transition-colors font-medium">
+              <Link
+                href={"mailto:support@faztro.com"}
+                className="text-gray-800 hover:text-[#00AFA1] transition-colors font-medium"
+              >
                 Contact
-              </button>
+              </Link>
               <Link
                 href={"https://www.instagram.com/faztroprime/"}
                 target="_blank"
@@ -186,7 +210,10 @@ export default function Home() {
                 Order now
               </Link>
             </div>
-            <button className="md:hidden text-gray-800">
+            <button
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              className="md:hidden text-gray-800"
+            >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 className="h-6 w-6"
@@ -206,11 +233,18 @@ export default function Home() {
         </div>
       </motion.nav>
 
-      {/* Mobile Menu - Hidden by default */}
-      <div className="hidden fixed inset-0 bg-black bg-opacity-50 z-40">
+      {/* Mobile Menu */}
+      <div
+        className={`${
+          isMobileMenuOpen ? "fixed" : "hidden"
+        } inset-0 bg-black bg-opacity-50 z-40`}
+      >
         <div className="bg-white w-64 h-full">
           <div className="p-4">
-            <button className="text-gray-700">
+            <button
+              onClick={() => setIsMobileMenuOpen(false)}
+              className="text-gray-700"
+            >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 className="h-6 w-6"
@@ -228,24 +262,43 @@ export default function Home() {
             </button>
           </div>
           <div className="p-4">
-            <button className="block w-full text-left py-2 text-gray-700 hover:text-[#00AFA1] transition-colors">
+            <button
+              onClick={() => scrollToSection("about")}
+              className="block w-full text-left py-2 text-gray-700 hover:text-[#00AFA1] transition-colors"
+            >
+              About
+            </button>
+            <button
+              onClick={() => scrollToSection("services")}
+              className="block w-full text-left py-2 text-gray-700 hover:text-[#00AFA1] transition-colors"
+            >
+              Services
+            </button>
+            <button
+              onClick={() => scrollToSection("how-it-works")}
+              className="block w-full text-left py-2 text-gray-700 hover:text-[#00AFA1] transition-colors"
+            >
               How it Works
             </button>
-            <button className="block w-full text-left py-2 text-gray-700 hover:text-[#00AFA1] transition-colors">
-              Features
-            </button>
-            <button className="block w-full text-left py-2 text-gray-700 hover:text-[#00AFA1] transition-colors">
+            <button
+              onClick={() => scrollToSection("contact")}
+              className="block w-full text-left py-2 text-gray-700 hover:text-[#00AFA1] transition-colors"
+            >
               Contact
             </button>
-            <button className="w-full mt-4 bg-gradient-to-r from-[#032A2C] to-[#00AFA1] text-white px-6 py-2 rounded-xl">
-              Launch App
-            </button>
+            <Link
+              href={"https://www.instagram.com/faztroprime/"}
+              target="_blank"
+              className="block w-full mt-4 bg-gradient-to-r from-[#032A2C] to-[#00AFA1] text-white px-6 py-2 rounded-xl text-center"
+            >
+              Order now
+            </Link>
           </div>
         </div>
       </div>
 
       {/* Hero Section with 3D Elements */}
-      <section className="relative pt-32 pb-20 overflow-hidden">
+      <section id="hero" className="relative pt-32 pb-20 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-b from-[#F0FFF9] to-transparent" />
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
@@ -304,10 +357,12 @@ export default function Home() {
       </section>
 
       {/* About Section */}
-      <AboutSection />
+      <section id="about">
+        <AboutSection />
+      </section>
 
       {/* Features Section with Cards */}
-      <section className="py-20 bg-white">
+      <section id="features" className="py-20 bg-white">
         <div className="max-w-6xl mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold bg-gradient-to-r from-[#032A2C] to-[#00AFA1] text-transparent bg-clip-text">
@@ -362,10 +417,12 @@ export default function Home() {
       </section>
 
       {/* Services Section */}
-      <ServicesSection />
+      <section id="services">
+        <ServicesSection />
+      </section>
 
       {/* How It Works - Timeline */}
-      <section className="py-20 bg-[#F8FAFB]">
+      <section id="how-it-works" className="py-20 bg-[#F8FAFB]">
         <div className="max-w-6xl mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold bg-gradient-to-r from-[#032A2C] to-[#00AFA1] text-transparent bg-clip-text">
@@ -431,16 +488,25 @@ export default function Home() {
       </section>
 
       {/* Delivery Partners Section */}
-      <DeliveryPartnersSection />
+      <section id="partners">
+        <DeliveryPartnersSection />
+      </section>
 
       {/* FAQ Section */}
-      <FAQSection />
+      <section id="faq">
+        <FAQSection />
+      </section>
 
       {/* Contact Section */}
-      <ContactSection />
+      <section id="contact">
+        <ContactSection />
+      </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-gradient-to-r from-[#032A2C] to-[#00AFA1]">
+      <section
+        id="cta"
+        className="py-20 bg-gradient-to-r from-[#032A2C] to-[#00AFA1]"
+      >
         <div className="max-w-4xl mx-auto px-4 text-center text-white">
           <motion.div
             initial={{ opacity: 0, y: 50 }}
@@ -488,13 +554,20 @@ export default function Home() {
                 your doorstep.
               </p>
               <div className="flex space-x-4">
-                {["Twitter", "Facebook", "Instagram"].map((social) => (
+                {[
+                  { name: "Facebook", link: "" },
+                  {
+                    name: "Instagram",
+                    link: "https://www.instagram.com/faztroprime/",
+                  },
+                ].map((social) => (
                   <a
-                    key={social}
-                    href="#"
+                    key={social.name}
+                    href={social.link}
+                    target="_blank"
                     className="w-10 h-10 rounded-full bg-[#00AFA1]/20 flex items-center justify-center hover:bg-[#00AFA1]/40 transition-colors"
                   >
-                    {social[0]}
+                    {social.name[0]}
                   </a>
                 ))}
               </div>
@@ -502,30 +575,77 @@ export default function Home() {
             <div>
               <h3 className="text-[#00AFA1] font-semibold mb-4">Quick Links</h3>
               <ul className="space-y-3">
-                {["About Us", "Services", "Pricing", "Contact"].map((link) => (
-                  <li key={link}>
-                    <a
-                      href="#"
-                      className="hover:text-[#00AFA1] transition-colors"
-                    >
-                      {link}
-                    </a>
-                  </li>
-                ))}
+                <li>
+                  <button
+                    onClick={() => scrollToSection("about")}
+                    className="hover:text-[#00AFA1] transition-colors"
+                  >
+                    About Us
+                  </button>
+                </li>
+                <li>
+                  <button
+                    onClick={() => scrollToSection("services")}
+                    className="hover:text-[#00AFA1] transition-colors"
+                  >
+                    Services
+                  </button>
+                </li>
+                <li>
+                  <button
+                    onClick={() => scrollToSection("how-it-works")}
+                    className="hover:text-[#00AFA1] transition-colors"
+                  >
+                    How it Works
+                  </button>
+                </li>
+                <li>
+                  <button
+                    onClick={() => scrollToSection("contact")}
+                    className="hover:text-[#00AFA1] transition-colors"
+                  >
+                    Order now
+                  </button>
+                </li>
               </ul>
             </div>
             <div>
-              <h3 className="text-[#00AFA1] font-semibold mb-4">Contact</h3>
+              <h3 className="text-[#00AFA1] font-semibold mb-4">
+                Connect With Us
+              </h3>
               <ul className="space-y-3">
-                <li className="flex items-center space-x-2">
-                  <span>📧</span>
-                  <Link href="mailto:support@faztro.com">
-                    support@faztro.com
+                <li>
+                  <Link
+                    href="https://www.instagram.com/faztroprime/"
+                    target="_blank"
+                    className="hover:text-[#00AFA1] transition-colors flex items-center space-x-2"
+                  >
+                    <span>Instagram</span>
                   </Link>
                 </li>
-                <li className="flex items-center space-x-2">
-                  <span>📍</span>
-                  <span>Puducherry, India</span>
+                <li>
+                  <Link
+                    href="mailto:support@faztro.com"
+                    className="hover:text-[#00AFA1] transition-colors flex items-center space-x-2"
+                  >
+                    <span>Email Us</span>
+                  </Link>
+                </li>
+                <li>
+                  <button
+                    onClick={() => scrollToSection("partners")}
+                    className="hover:text-[#00AFA1] transition-colors"
+                  >
+                    Become a Partner
+                  </button>
+                </li>
+                <li>
+                  <button
+                    onClick={() => scrollToSection("faq")}
+                    className="hover:text-[#00AFA1] transition-colors"
+                  >
+                    FAQs
+                  </button>
                 </li>
               </ul>
             </div>
