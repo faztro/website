@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { Geist } from "next/font/google";
 import "./globals.css";
-import { Toaster } from "react-hot-toast";
 
 const geist = Geist({
   variable: "--font-geist",
@@ -25,10 +24,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${geist.variable} antialiased`}>
-        {children}
-        <Toaster position="top-center" reverseOrder={false} />
-      </body>
+      <body className={`${geist.variable} antialiased`}>{children}</body>
     </html>
   );
 }

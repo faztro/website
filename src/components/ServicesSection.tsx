@@ -9,9 +9,9 @@ const SERVICES = [
     description: "Get your daily necessities delivered to your doorstep",
   },
   {
-    icon: "📦",
-    title: "Documents & Small Parcels",
-    description: "Safe and secure delivery of your important items",
+    icon: "📑",
+    title: "Documents",
+    description: "Safe and secure delivery of your important documents",
   },
   {
     icon: "🍽️",
@@ -24,9 +24,14 @@ const SERVICES = [
     description: "Custom delivery solutions for your unique needs",
   },
   {
-    icon: "📦📦",
+    icon: "📦",
     title: "Efficient Handling of Bulk and Multi-Item Deliveries",
     description: "Efficient handling of multiple items and bulk orders",
+  },
+  {
+    icon: "💊",
+    title: "Fast and Reliable Medicine Delivery",
+    description: "Reliable and timely delivery of prescription medications",
   },
 ];
 

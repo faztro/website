@@ -80,10 +80,8 @@ const CountdownTimer = () => {
       };
     };
 
-    // Initial calculation
     setTimeLeft(calculateTimeLeft());
 
-    // Update every second
     const timer = setInterval(() => {
       setTimeLeft(calculateTimeLeft());
     }, 1000);
@@ -92,45 +90,45 @@ const CountdownTimer = () => {
   }, []);
 
   return (
-    <div className="w-full px-4 md:px-0">
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 md:gap-6">
-        <div className="text-center">
-          <div className="bg-white w-full sm:w-24 md:w-20 h-20 rounded-xl shadow-lg flex items-center justify-center">
-            <span className="text-3xl md:text-4xl font-bold text-[#032A2C]">
+    <div className="w-full">
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-2 sm:gap-3 md:gap-4">
+        <div className="text-center p-2">
+          <div className="bg-white w-full h-14 sm:h-16 md:h-20 rounded-xl shadow-lg flex items-center justify-center">
+            <span className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-[#032A2C]">
               {timeLeft.days}
             </span>
           </div>
-          <span className="text-sm font-medium text-gray-600 mt-2 block">
+          <span className="text-xs sm:text-sm font-medium text-gray-600 mt-1 block">
             Days
           </span>
         </div>
-        <div className="text-center">
-          <div className="bg-white w-full sm:w-24 md:w-20 h-20 rounded-xl shadow-lg flex items-center justify-center">
-            <span className="text-3xl md:text-4xl font-bold text-[#032A2C]">
+        <div className="text-center p-2">
+          <div className="bg-white w-full h-14 sm:h-16 md:h-20 rounded-xl shadow-lg flex items-center justify-center">
+            <span className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-[#032A2C]">
               {timeLeft.hours}
             </span>
           </div>
-          <span className="text-sm font-medium text-gray-600 mt-2 block">
+          <span className="text-xs sm:text-sm font-medium text-gray-600 mt-1 block">
             Hours
           </span>
         </div>
-        <div className="text-center">
-          <div className="bg-white w-full sm:w-24 md:w-20 h-20 rounded-xl shadow-lg flex items-center justify-center">
-            <span className="text-3xl md:text-4xl font-bold text-[#032A2C]">
+        <div className="text-center p-2">
+          <div className="bg-white w-full h-14 sm:h-16 md:h-20 rounded-xl shadow-lg flex items-center justify-center">
+            <span className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-[#032A2C]">
               {timeLeft.minutes}
             </span>
           </div>
-          <span className="text-sm font-medium text-gray-600 mt-2 block">
+          <span className="text-xs sm:text-sm font-medium text-gray-600 mt-1 block">
             Minutes
           </span>
         </div>
-        <div className="text-center">
-          <div className="bg-white w-full sm:w-24 md:w-20 h-20 rounded-xl shadow-lg flex items-center justify-center">
-            <span className="text-3xl md:text-4xl font-bold text-[#032A2C]">
+        <div className="text-center p-2">
+          <div className="bg-white w-full h-14 sm:h-16 md:h-20 rounded-xl shadow-lg flex items-center justify-center">
+            <span className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-[#032A2C]">
               {timeLeft.seconds}
             </span>
           </div>
-          <span className="text-sm font-medium text-gray-600 mt-2 block">
+          <span className="text-xs sm:text-sm font-medium text-gray-600 mt-1 block">
             Seconds
           </span>
         </div>
@@ -152,13 +150,13 @@ export default function Home() {
   };
 
   return (
-    <div className="min-h-screen bg-[#FAFAFA]">
+    <div className="min-h-screen bg-[#FAFAFA] w-full relative">
       {/* Floating Navigation */}
       <motion.nav
         initial={{ y: -100 }}
         animate={{ y: 0 }}
         transition={{ duration: 0.5 }}
-        className="fixed top-4 left-0 right-0 mx-4 md:mx-8 lg:mx-auto max-w-6xl bg-white/90 backdrop-blur-md z-50 rounded-2xl shadow-lg border border-white/20"
+        className="fixed top-4 left-0 right-0 mx-4 w-[90%] md:w-full md:mx-8 lg:mx-auto max-w-6xl bg-white/90 backdrop-blur-md z-50 rounded-2xl shadow-lg border border-white/20"
       >
         <div className="px-4 md:px-6 py-4">
           <div className="flex justify-between items-center">
@@ -237,13 +235,23 @@ export default function Home() {
       <div
         className={`${
           isMobileMenuOpen ? "fixed" : "hidden"
-        } inset-0 bg-black bg-opacity-50 z-40`}
+        } inset-0 bg-black bg-opacity-50 z-50 w-full`}
       >
-        <div className="bg-white w-64 h-full">
-          <div className="p-4">
+        <div className="bg-white w-64 h-full transform transition-transform duration-300 ease-in-out">
+          <div className="p-4 flex justify-between items-center border-b">
+            <div className="flex items-center space-x-2">
+              <Image
+                src="/faztro.svg"
+                alt="Faztro Logo"
+                width={32}
+                height={32}
+                className="rounded-lg"
+              />
+              <span className="font-semibold text-[#032A2C]">Faztro</span>
+            </div>
             <button
               onClick={() => setIsMobileMenuOpen(false)}
-              className="text-gray-700"
+              className="text-gray-500 hover:text-gray-700"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -262,43 +270,48 @@ export default function Home() {
             </button>
           </div>
           <div className="p-4">
-            <button
-              onClick={() => scrollToSection("about")}
-              className="block w-full text-left py-2 text-gray-700 hover:text-[#00AFA1] transition-colors"
-            >
-              About
-            </button>
-            <button
-              onClick={() => scrollToSection("services")}
-              className="block w-full text-left py-2 text-gray-700 hover:text-[#00AFA1] transition-colors"
-            >
-              Services
-            </button>
-            <button
-              onClick={() => scrollToSection("how-it-works")}
-              className="block w-full text-left py-2 text-gray-700 hover:text-[#00AFA1] transition-colors"
-            >
-              How it Works
-            </button>
-            <button
-              onClick={() => scrollToSection("contact")}
-              className="block w-full text-left py-2 text-gray-700 hover:text-[#00AFA1] transition-colors"
-            >
-              Contact
-            </button>
-            <Link
-              href={"https://www.instagram.com/faztroprime/"}
-              target="_blank"
-              className="block w-full mt-4 bg-gradient-to-r from-[#032A2C] to-[#00AFA1] text-white px-6 py-2 rounded-xl text-center"
-            >
-              Order now
-            </Link>
+            <div className="space-y-4">
+              <button
+                onClick={() => scrollToSection("about")}
+                className="block w-full text-left py-3 px-4 rounded-lg hover:bg-gray-50 text-gray-700 hover:text-[#00AFA1] transition-colors"
+              >
+                About
+              </button>
+              <button
+                onClick={() => scrollToSection("services")}
+                className="block w-full text-left py-3 px-4 rounded-lg hover:bg-gray-50 text-gray-700 hover:text-[#00AFA1] transition-colors"
+              >
+                Services
+              </button>
+              <button
+                onClick={() => scrollToSection("how-it-works")}
+                className="block w-full text-left py-3 px-4 rounded-lg hover:bg-gray-50 text-gray-700 hover:text-[#00AFA1] transition-colors"
+              >
+                How it Works
+              </button>
+              <button
+                onClick={() => scrollToSection("contact")}
+                className="block w-full text-left py-3 px-4 rounded-lg hover:bg-gray-50 text-gray-700 hover:text-[#00AFA1] transition-colors"
+              >
+                Contact
+              </button>
+              <Link
+                href={"https://www.instagram.com/faztroprime/"}
+                target="_blank"
+                className="block w-full py-3 px-4 bg-gradient-to-r from-[#032A2C] to-[#00AFA1] text-white rounded-xl text-center font-medium hover:shadow-lg transition-shadow"
+              >
+                Order now
+              </Link>
+            </div>
           </div>
         </div>
       </div>
 
-      {/* Hero Section with 3D Elements */}
-      <section id="hero" className="relative pt-32 pb-20 overflow-hidden">
+      {/* Hero Section */}
+      <section
+        id="hero"
+        className="relative pt-28 md:pt-32 pb-16 md:pb-20 overflow-hidden"
+      >
         <div className="absolute inset-0 bg-gradient-to-b from-[#F0FFF9] to-transparent" />
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
@@ -306,42 +319,34 @@ export default function Home() {
               initial={{ opacity: 0, x: -50 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8 }}
-              className="relative z-10"
+              className="relative z-10 text-center md:text-left space-y-4 md:space-y-6"
             >
-              <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-tight">
+              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
                 Your <span className="text-[#00AFA1]">Everyday</span> Essentials
                 by{" "}
                 <span className="bg-gradient-to-r from-[#032A2C] to-[#00AFA1] text-transparent bg-clip-text">
                   Local Heroes
                 </span>
               </h1>
-              <p className="mt-6 text-xl text-gray-600 leading-relaxed">
+              <p className="text-base sm:text-lg md:text-xl text-gray-600 leading-relaxed">
                 Say hello to Faztro – the fastest way to get your essentials
                 delivered by trusted local heroes. Whether it's groceries,
                 parcels, or custom requests, we've got you covered with a
                 personal touch.
               </p>
-              <div className="mt-10 flex flex-col items-center w-full">
+              <div className="mt-6 md:mt-8">
                 <CountdownTimer />
               </div>
-              {/* <motion.button
-                whileHover={{ scale: 1.05 }}
-                className="mt-8 px-8 py-4 bg-gradient-to-r from-[#032A2C] to-[#00AFA1] text-white rounded-xl font-semibold shadow-lg hover:shadow-xl transition-shadow w-full md:w-auto"
-              >
-                Get Notified at Launch
-              </motion.button> */}
             </motion.div>
             <motion.div
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.8 }}
-              className="relative"
+              className="relative hidden md:block"
             >
-              <div className="relative w-full h-[500px] mt-20">
-                {/* <div className="absolute inset-0 bg-gradient-to-br from-[#032A2C]/10 to-[#00AFA1]/10 rounded-3xl transform rotate-6" />
-                <div className="absolute inset-0  bg-gradient-to-br from-[#032A2C] via-[#026D64] to-[#00AFA1]  rounded-3xl shadow-xl -rotate-6"> */}
+              <div className="relative w-full h-[400px] lg:h-[500px]">
                 <div className="absolute inset-0 bg-gradient-to-br from-[#032A2C]/10 to-[#00AFA1]/10 rounded-3xl transform rotate-6" />
-                <div className="absolute inset-0  bg-white  rounded-3xl shadow-xl -rotate-6">
+                <div className="absolute inset-0 bg-white rounded-3xl shadow-xl -rotate-6">
                   <Image
                     src="/faztro.svg"
                     alt="Delivery Illustration"
@@ -432,7 +437,7 @@ export default function Home() {
               Simple steps to get your items delivered
             </p>
           </div>
-          <div className="relative">
+          <div className="relative overflow-hidden">
             <div className="absolute left-1/2 top-0 w-1 h-full bg-gradient-to-b from-[#032A2C] to-[#00AFA1] -translate-x-1/2" />
             {TIMELINE_STEPS.map((step, index) => (
               <motion.div
@@ -530,10 +535,10 @@ export default function Home() {
       </section>
 
       {/* Footer */}
-      <footer className="bg-[#032A2C] text-gray-300 py-16">
+      <footer className="bg-[#032A2C] text-gray-300 py-12 md:py-16">
         <div className="max-w-6xl mx-auto px-4">
-          <div className="grid md:grid-cols-4 gap-12">
-            <div className="col-span-2">
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-8 md:gap-12">
+            <div className="col-span-1 md:col-span-2">
               <div className="flex items-center mb-6">
                 <div className="relative h-10 w-10 bg-gradient-to-br from-[#032A2C] via-[#026D64] to-[#00AFA1] rounded-xl flex items-center justify-center transform hover:rotate-12 transition-all duration-300 hover:shadow-lg hover:shadow-teal-200/20">
                   <Image
@@ -544,11 +549,11 @@ export default function Home() {
                     height={40}
                   />
                 </div>
-                <span className="text-2xl font-bold text-[#00AFA1] ml-3">
+                <span className="text-xl md:text-2xl font-bold text-[#00AFA1] ml-3">
                   Faztro
                 </span>
               </div>
-              <p className="text-gray-400 mb-6">
+              <p className="text-gray-400 mb-6 text-sm md:text-base">
                 Connecting you with trusted local heroes for all your delivery
                 needs. Supporting communities while delivering convenience to
                 your doorstep.
@@ -573,12 +578,14 @@ export default function Home() {
               </div>
             </div>
             <div>
-              <h3 className="text-[#00AFA1] font-semibold mb-4">Quick Links</h3>
-              <ul className="space-y-3">
+              <h3 className="text-[#00AFA1] font-semibold mb-4 text-lg">
+                Quick Links
+              </h3>
+              <ul className="space-y-2 md:space-y-3">
                 <li>
                   <button
                     onClick={() => scrollToSection("about")}
-                    className="hover:text-[#00AFA1] transition-colors"
+                    className="hover:text-[#00AFA1] transition-colors text-sm md:text-base"
                   >
                     About Us
                   </button>
@@ -586,7 +593,7 @@ export default function Home() {
                 <li>
                   <button
                     onClick={() => scrollToSection("services")}
-                    className="hover:text-[#00AFA1] transition-colors"
+                    className="hover:text-[#00AFA1] transition-colors text-sm md:text-base"
                   >
                     Services
                   </button>
@@ -594,7 +601,7 @@ export default function Home() {
                 <li>
                   <button
                     onClick={() => scrollToSection("how-it-works")}
-                    className="hover:text-[#00AFA1] transition-colors"
+                    className="hover:text-[#00AFA1] transition-colors text-sm md:text-base"
                   >
                     How it Works
                   </button>
@@ -602,23 +609,23 @@ export default function Home() {
                 <li>
                   <button
                     onClick={() => scrollToSection("contact")}
-                    className="hover:text-[#00AFA1] transition-colors"
+                    className="hover:text-[#00AFA1] transition-colors text-sm md:text-base"
                   >
-                    Order now
+                    Contact
                   </button>
                 </li>
               </ul>
             </div>
             <div>
-              <h3 className="text-[#00AFA1] font-semibold mb-4">
+              <h3 className="text-[#00AFA1] font-semibold mb-4 text-lg">
                 Connect With Us
               </h3>
-              <ul className="space-y-3">
+              <ul className="space-y-2 md:space-y-3">
                 <li>
                   <Link
                     href="https://www.instagram.com/faztroprime/"
                     target="_blank"
-                    className="hover:text-[#00AFA1] transition-colors flex items-center space-x-2"
+                    className="hover:text-[#00AFA1] transition-colors flex items-center space-x-2 text-sm md:text-base"
                   >
                     <span>Instagram</span>
                   </Link>
@@ -626,7 +633,7 @@ export default function Home() {
                 <li>
                   <Link
                     href="mailto:support@faztro.com"
-                    className="hover:text-[#00AFA1] transition-colors flex items-center space-x-2"
+                    className="hover:text-[#00AFA1] transition-colors flex items-center space-x-2 text-sm md:text-base"
                   >
                     <span>Email Us</span>
                   </Link>
@@ -634,7 +641,7 @@ export default function Home() {
                 <li>
                   <button
                     onClick={() => scrollToSection("partners")}
-                    className="hover:text-[#00AFA1] transition-colors"
+                    className="hover:text-[#00AFA1] transition-colors text-sm md:text-base"
                   >
                     Become a Partner
                   </button>
@@ -642,7 +649,7 @@ export default function Home() {
                 <li>
                   <button
                     onClick={() => scrollToSection("faq")}
-                    className="hover:text-[#00AFA1] transition-colors"
+                    className="hover:text-[#00AFA1] transition-colors text-sm md:text-base"
                   >
                     FAQs
                   </button>
@@ -650,8 +657,10 @@ export default function Home() {
               </ul>
             </div>
           </div>
-          <div className="mt-12 pt-8 border-t border-gray-800 text-center text-gray-400">
-            <p>© 2024 Faztro. All rights reserved.</p>
+          <div className="mt-8 md:mt-12 pt-8 border-t border-gray-800 text-center">
+            <p className="text-gray-400 text-sm">
+              © 2024 Faztro. All rights reserved.
+            </p>
           </div>
         </div>
       </footer>
