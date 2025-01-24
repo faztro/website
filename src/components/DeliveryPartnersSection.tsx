@@ -41,7 +41,8 @@ export default function DeliveryPartnersSection() {
             transition={{ delay: 0.2 }}
             className="mt-4 text-xl text-gray-600"
           >
-            Join our community of trusted delivery partners
+            Join our community of trusted delivery partners and PTU students can
+            be hired
           </motion.p>
         </div>
 

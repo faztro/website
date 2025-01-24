@@ -20,22 +20,23 @@ const TIMELINE_STEPS = [
   },
   {
     step: "2",
-    title: "Meet Your Local Hero",
-    description: "Get matched with a trusted delivery partner nearby",
+    title: "Secure Payment",
+    description: "Enjoy secure payment options for your delivery",
     align: "left",
     icon: "/icons/location.svg",
   },
   {
     step: "3",
-    title: "Track in Real Time",
-    description: "Watch your delivery's journey every step of the way",
+    title: "Assign Delivery",
+    description: "Assign your delivery to a trusted partner",
     align: "right",
     icon: "/icons/clock.svg",
   },
   {
     step: "4",
-    title: "Pay & Rate",
-    description: "Enjoy secure payment options and share your feedback",
+    title: "Enjoy Your Order",
+    description:
+      "We hope you enjoy your secure payment and delivery experience",
     align: "left",
     icon: "/icons/delivery.svg",
   },
@@ -332,9 +333,9 @@ export default function Home() {
                 parcels, or custom requests, we've got you covered with a
                 personal touch.
               </p>
-              <div className="mt-6 md:mt-8">
+              {/* <div className="mt-6 md:mt-8">
                 <CountdownTimer />
-              </div>
+              </div> */}
             </motion.div>
             <motion.div
               initial={{ opacity: 0, scale: 0.8 }}
@@ -524,8 +525,9 @@ export default function Home() {
             <motion.button
               whileHover={{ scale: 1.05 }}
               className="px-8 py-4 bg-white text-[#032A2C] rounded-xl font-semibold shadow-lg"
+              disabled
             >
-              Launch February 14
+              🚧 Under Development 🚧
             </motion.button>
           </motion.div>
         </div>

@@ -146,7 +146,7 @@ export default function ContactSection() {
                   {...register("pickup")}
                   rows={3}
                   className="w-full px-4 py-2 rounded-xl border border-gray-300 focus:ring-2 focus:ring-[#00AFA1] focus:border-transparent outline-none"
-                  placeholder="Enter the pickup address"
+                  placeholder="Enter pickup address, please mention the shop name if you know"
                 />
                 {errors.pickup && (
                   <p className="mt-1 text-sm text-red-600">
