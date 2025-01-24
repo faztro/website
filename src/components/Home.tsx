@@ -52,7 +52,7 @@ const CountdownTimer = () => {
 
   useEffect(() => {
     const calculateTimeLeft = () => {
-      const launchDate = new Date("2025-02-14T00:00:00+05:30");
+      const launchDate = new Date("2025-01-26T00:00:00+05:30");
       const now = new Date();
       const difference = launchDate.getTime() - now.getTime();
 
@@ -156,14 +156,14 @@ export default function Home() {
         initial={{ y: -100 }}
         animate={{ y: 0 }}
         transition={{ duration: 0.5 }}
-        className="fixed top-4 left-0 right-0 mx-4 w-[90%] md:w-full md:mx-8 lg:mx-auto max-w-6xl bg-white/90 backdrop-blur-md z-50 rounded-2xl shadow-lg border border-white/20"
+        className="fixed top-4 left-0 right-0 mx-4 w-[90%] md:w-[90%] md:mx-auto lg:mx-auto max-w-6xl bg-white/90 backdrop-blur-md z-50 rounded-2xl shadow-lg border border-white/20"
       >
         <div className="px-4 md:px-6 py-4">
           <div className="flex justify-between items-center">
-            <div className="flex items-center space-x-4">
-              <div className="relative h-10 w-10 bg-gradient-to-br from-[#032A2C] via-[#026D64] to-[#00AFA1] rounded-xl flex items-center justify-center transform hover:rotate-12 transition-all duration-300 hover:shadow-lg hover:shadow-teal-200/20">
+            <div className="flex items-center space-x-2 md:space-x-4">
+              <div className="relative h-8 w-8 md:h-10 md:w-10 rounded-xl flex items-center justify-center transform hover:rotate-12 transition-all duration-300 hover:shadow-lg hover:shadow-teal-200/20">
                 <Image
-                  src="/faztro.png"
+                  src="/faztro_logo_circle.png"
                   alt="Faztro Logo"
                   className="object-contain p-1"
                   width={40}
@@ -171,46 +171,45 @@ export default function Home() {
                   priority
                 />
               </div>
-              <span className="text-xl md:text-2xl font-bold bg-gradient-to-r from-[#032A2C] to-[#00AFA1] text-transparent bg-clip-text">
+              <span className="text-lg md:text-xl lg:text-2xl font-bold bg-gradient-to-r from-[#032A2C] to-[#00AFA1] text-transparent bg-clip-text whitespace-nowrap">
                 Faztro
               </span>
             </div>
-            <div className="hidden md:flex items-center space-x-8">
+            <div className="hidden md:flex items-center md:space-x-4 lg:space-x-8">
               <button
                 onClick={() => scrollToSection("about")}
-                className="text-gray-800 hover:text-[#00AFA1] transition-colors font-medium"
+                className="text-gray-800 hover:text-[#00AFA1] transition-colors font-medium whitespace-nowrap text-sm lg:text-base"
               >
                 About
               </button>
               <button
                 onClick={() => scrollToSection("services")}
-                className="text-gray-800 hover:text-[#00AFA1] transition-colors font-medium"
+                className="text-gray-800 hover:text-[#00AFA1] transition-colors font-medium whitespace-nowrap text-sm lg:text-base"
               >
                 Services
               </button>
               <button
                 onClick={() => scrollToSection("how-it-works")}
-                className="text-gray-800 hover:text-[#00AFA1] transition-colors font-medium"
+                className="text-gray-800 hover:text-[#00AFA1] transition-colors font-medium whitespace-nowrap text-sm lg:text-base"
               >
                 How it Works
               </button>
               <Link
                 href={"mailto:support@faztro.com"}
-                className="text-gray-800 hover:text-[#00AFA1] transition-colors font-medium"
+                className="text-gray-800 hover:text-[#00AFA1] transition-colors font-medium whitespace-nowrap text-sm lg:text-base"
               >
                 Contact
               </Link>
-              <Link
-                href={"https://www.instagram.com/faztroprime/"}
-                target="_blank"
-                className="bg-gradient-to-r from-[#032A2C] to-[#00AFA1] text-white px-6 py-2.5 rounded-xl hover:shadow-lg transition-all hover:scale-105 hover:shadow-teal-100/50"
+              <button
+                onClick={() => scrollToSection("contact")}
+                className="px-4 py-2 md:px-6 md:py-3 bg-gradient-to-r from-[#032A2C] to-[#00AFA1] text-white rounded-xl text-center font-medium hover:shadow-lg transition-shadow whitespace-nowrap text-sm lg:text-base"
               >
                 Order now
-              </Link>
+              </button>
             </div>
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="md:hidden text-gray-800"
+              className="md:hidden text-gray-800 p-1"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -295,13 +294,12 @@ export default function Home() {
               >
                 Contact
               </button>
-              <Link
-                href={"https://www.instagram.com/faztroprime/"}
-                target="_blank"
+              <button
+                onClick={() => scrollToSection("contact")}
                 className="block w-full py-3 px-4 bg-gradient-to-r from-[#032A2C] to-[#00AFA1] text-white rounded-xl text-center font-medium hover:shadow-lg transition-shadow"
               >
                 Order now
-              </Link>
+              </button>
             </div>
           </div>
         </div>
@@ -342,7 +340,7 @@ export default function Home() {
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.8 }}
-              className="relative hidden md:block"
+              className="relative"
             >
               <div className="relative w-full h-[400px] lg:h-[500px]">
                 <div className="absolute inset-0 bg-gradient-to-br from-[#032A2C]/10 to-[#00AFA1]/10 rounded-3xl transform rotate-6" />
@@ -518,11 +516,10 @@ export default function Home() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-4xl font-bold mb-6">
-              Ready to Experience Local Hero Deliveries?
-            </h2>
+            <h2 className="text-4xl font-bold mb-6">App Coming Soon</h2>
             <p className="text-xl mb-8 opacity-90">
-              Join the community of trusted local heroes and happy customers
+              Stay tuned for the launch of our app, bringing you closer to your
+              local heroes and the convenience you deserve.
             </p>
             <motion.button
               whileHover={{ scale: 1.05 }}
