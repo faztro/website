@@ -10,6 +10,17 @@ import FAQSection from "./FAQSection";
 import DeliveryPartnersSection from "./DeliveryPartnersSection";
 import ContactSection from "./ContactSection";
 
+/*
+Local hero will be assigned
+A trusted local hero will be assigned to handle your delivery.
+
+Focus on Your Day
+Carry on with your daily tasks while we take care of your delivery.
+
+Hassle-Free Delivery
+Your items will be delivered promptly and efficiently.
+k*/
+
 const TIMELINE_STEPS = [
   {
     step: "1",
@@ -20,23 +31,24 @@ const TIMELINE_STEPS = [
   },
   {
     step: "2",
-    title: "Secure Payment",
-    description: "Enjoy secure payment options for your delivery",
+    title: "Local hero will be assigned",
+    description:
+      "A trusted local hero will be assigned to handle your delivery.",
     align: "left",
     icon: "/icons/location.svg",
   },
   {
     step: "3",
-    title: "Assign Delivery",
-    description: "Assign your delivery to a trusted partner",
+    title: "Focus on Your Day",
+    description:
+      "Carry on with your daily tasks while we take care of your delivery.",
     align: "right",
     icon: "/icons/clock.svg",
   },
   {
     step: "4",
-    title: "Enjoy Your Order",
-    description:
-      "We hope you enjoy your secure payment and delivery experience",
+    title: "Hassle-Free Delivery",
+    description: "Your items will be delivered promptly and efficiently.",
     align: "left",
     icon: "/icons/delivery.svg",
   },
