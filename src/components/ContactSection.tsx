@@ -79,7 +79,7 @@ export default function ContactSection() {
                   htmlFor="name"
                   className="block text-sm font-medium text-gray-700 mb-1"
                 >
-                  Full Name
+                  Name
                 </label>
                 <input
                   type="text"
@@ -126,7 +126,7 @@ export default function ContactSection() {
                   {...register("items")}
                   rows={3}
                   className="w-full px-4 py-2 rounded-xl border border-gray-300 focus:ring-2 focus:ring-[#00AFA1] focus:border-transparent outline-none"
-                  placeholder="List the items you need delivered"
+                  placeholder="Food, Grocery, Medicine, Gift, Daily Essentials, Printouts and etc..."
                 />
                 {errors.items && (
                   <p className="mt-1 text-sm text-red-600">

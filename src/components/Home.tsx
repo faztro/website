@@ -321,7 +321,7 @@ export default function Home() {
       {/* Hero Section */}
       <section
         id="hero"
-        className="relative pt-28 md:pt-32 pb-16 md:pb-20 overflow-hidden"
+        className="relative pt-28 md:pt-44 pb-16 md:pb-20 overflow-hidden"
       >
         <div className="absolute inset-0 bg-gradient-to-b from-[#F0FFF9] to-transparent" />
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
