@@ -559,9 +559,10 @@ export default function Home() {
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8 md:gap-12">
             <div className="col-span-1 md:col-span-2">
               <div className="flex items-center mb-6">
-                <div className="relative h-10 w-10 bg-gradient-to-br from-[#032A2C] via-[#026D64] to-[#00AFA1] rounded-xl flex items-center justify-center transform hover:rotate-12 transition-all duration-300 hover:shadow-lg hover:shadow-teal-200/20">
+                {/* <div className="relative h-10 w-10 bg-gradient-to-br from-[#032A2C] via-[#026D64] to-[#00AFA1] rounded-xl flex items-center justify-center transform hover:rotate-12 transition-all duration-300 hover:shadow-lg hover:shadow-teal-200/20"> */}
+                <div>
                   <Image
-                    src="/faztro.png"
+                    src="/faztro_logo_circle.png"
                     alt="Faztro Logo"
                     className="object-contain p-1"
                     width={40}
