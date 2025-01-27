@@ -9,6 +9,7 @@ import ServicesSection from "./ServicesSection";
 import FAQSection from "./FAQSection";
 import DeliveryPartnersSection from "./DeliveryPartnersSection";
 import ContactSection from "./ContactSection";
+import PromoDialog from "./PromoDialog";
 
 /*
 Local hero will be assigned
@@ -153,6 +154,7 @@ const CountdownTimer = () => {
 export default function Home() {
   const [activeStep] = useState(0);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isPromoOpen, setIsPromoOpen] = useState(true);
 
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
@@ -164,6 +166,7 @@ export default function Home() {
 
   return (
     <div className="min-h-screen bg-[#FAFAFA] w-full relative">
+      <PromoDialog isOpen={isPromoOpen} setIsOpen={setIsPromoOpen} />
       {/* Floating Navigation */}
       <motion.nav
         initial={{ y: -100 }}
@@ -325,12 +328,12 @@ export default function Home() {
       >
         <div className="absolute inset-0 bg-gradient-to-b from-[#F0FFF9] to-transparent" />
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
+          <div className="flex flex-col-reverse md:flex-row gap-8 md:gap-12 items-center">
             <motion.div
               initial={{ opacity: 0, x: -50 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8 }}
-              className="relative z-10 text-center md:text-left space-y-4 md:space-y-6"
+              className="relative z-10 text-center md:text-left space-y-4 md:space-y-6 w-full"
             >
               <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
                 Your <span className="text-[#00AFA1]">Everyday</span> Essentials
@@ -345,15 +348,20 @@ export default function Home() {
                 parcels, or custom requests, we've got you covered with a
                 personal touch.
               </p>
-              {/* <div className="mt-6 md:mt-8">
-                <CountdownTimer />
-              </div> */}
+              <div className="mt-6 md:mt-8">
+                <button
+                  onClick={() => scrollToSection("contact")}
+                  className="block w-full py-3 px-4 bg-gradient-to-r from-[#032A2C] to-[#00AFA1] text-white rounded-xl text-center font-medium hover:shadow-lg transition-shadow md:w-1/2 md:hidden"
+                >
+                  Order now
+                </button>
+              </div>
             </motion.div>
             <motion.div
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.8 }}
-              className="relative"
+              className="relative w-full"
             >
               <div className="relative w-full h-[400px] lg:h-[500px]">
                 <div className="absolute inset-0 bg-gradient-to-br from-[#032A2C]/10 to-[#00AFA1]/10 rounded-3xl transform rotate-6" />
