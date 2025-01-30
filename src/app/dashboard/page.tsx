@@ -2,7 +2,6 @@
 
 import { useEffect, useState } from "react";
 import axios from "axios";
-import { useSession } from "next-auth/react";
 import { ApiResponse, Order } from "@/types/api.types";
 import toast from "react-hot-toast";
 import { isOrdersOpen } from "@/actions/get_open_orders/get_open_orders";
@@ -21,18 +20,12 @@ export default function Dashboard() {
   const [loading, setLoading] = useState(true);
   const [statusFilter, setStatusFilter] = useState<StatusFilter>("all");
   const [searchTerm, setSearchTerm] = useState("");
-  const { data: session } = useSession();
 
   useEffect(() => {
     const fetchOrders = async () => {
       try {
         const { data } = await axios.get<ApiResponse<Order[]>>(
-          `${process.env.NEXT_PUBLIC_SERVER_URL}/orders`,
-          {
-            headers: {
-              Authorization: `Bearer ${session?.user?.accessToken || ""}`,
-            },
-          }
+          `${process.env.NEXT_PUBLIC_SERVER_URL}/orders`
         );
         if (data.success && data.data) {
           setOrders(data.data);
@@ -44,21 +37,14 @@ export default function Dashboard() {
       }
     };
 
-    if (session) {
-      fetchOrders();
-    }
-  }, [session]);
+    fetchOrders();
+  }, []);
 
   const handleStatusUpdate = async (orderId: string, newStatus: string) => {
     try {
       const { data } = await axios.put<ApiResponse<Order>>(
         `${process.env.NEXT_PUBLIC_SERVER_URL}/orders/${orderId}`,
-        { status: newStatus },
-        {
-          headers: {
-            Authorization: `Bearer ${session?.user?.accessToken || ""}`,
-          },
-        }
+        { status: newStatus }
       );
 
       if (data.success && orders) {
