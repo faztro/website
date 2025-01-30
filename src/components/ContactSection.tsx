@@ -30,8 +30,6 @@ export default function ContactSection() {
 
   const onSubmit = async (data: FormData) => {
     try {
-      toast.error("Launching Soon");
-      return;
       console.log(data);
       const response = await createOrder(data);
       console.log(response);
@@ -178,12 +176,11 @@ export default function ContactSection() {
               </div>
               <button
                 type="submit"
-                // disabled={isSubmitting}
+                disabled={isSubmitting}
                 className="w-full px-8 py-4 bg-gradient-to-r from-[#032A2C] to-[#00AFA1] text-white rounded-xl font-semibold shadow-lg hover:shadow-xl transition-shadow disabled:opacity-50 disabled:cursor-not-allowed"
-                disabled
+                // disabled
               >
-                {/* {isSubmitting ? "Submitting..." : "Request Delivery"} */}
-                Launching Soon
+                {isSubmitting ? "Submitting..." : "Request Delivery"}
               </button>
             </form>
           </motion.div>
