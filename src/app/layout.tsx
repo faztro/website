@@ -1,30 +1,25 @@
 import type { Metadata } from "next";
-import { Geist } from "next/font/google";
+import { Inter } from "next/font/google";
 import "./globals.css";
+import AuthProvider from "@/components/AuthProvider";
 
-const geist = Geist({
-  variable: "--font-geist",
-  subsets: ["latin"],
-});
+const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Faztro | Affordable Delivery Services in Puducherry",
-  description:
-    "Your trusted delivery partner in Puducherry. Order anything, from anywhere within the city. Launching February 14th!",
-  icons: {
-    icon: "/faztro.png",
-    apple: "/faztro.png",
-  },
+  title: "Faztro",
+  description: "Faztro - Fast Delivery Service",
 };
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   return (
     <html lang="en">
-      <body className={`${geist.variable} antialiased`}>{children}</body>
+      <body className={inter.className}>
+        <AuthProvider>{children}</AuthProvider>
+      </body>
     </html>
   );
 }

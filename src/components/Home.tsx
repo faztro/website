@@ -8,7 +8,7 @@ import AboutSection from "./AboutSection";
 import ServicesSection from "./ServicesSection";
 import FAQSection from "./FAQSection";
 import DeliveryPartnersSection from "./DeliveryPartnersSection";
-import ContactSection from "./ContactSection";
+import ContactSection from "./Order";
 import PromoDialog from "./PromoDialog";
 
 /*
