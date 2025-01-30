@@ -45,6 +45,8 @@ export async function createOrder(order: Order): Promise<OrderResponse> {
       `,
     };
 
+    await transporter.sendMail(mailOptions);
+
     return {
       success: true,
       message:
