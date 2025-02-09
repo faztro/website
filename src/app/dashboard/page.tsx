@@ -289,7 +289,13 @@ export default function Dashboard() {
                       </svg>
                       Delivery Location
                     </h4>
+
                     <p className="text-sm text-gray-600 break-words pl-5">
+                      <span className="font-bold">College:</span>{" "}
+                      {order.college}
+                    </p>
+                    <p className="text-sm text-gray-600 break-words pl-5 mt-1">
+                      <span className="font-bold">Delivery Address:</span>{" "}
                       {order.delivery}
                     </p>
                   </div>

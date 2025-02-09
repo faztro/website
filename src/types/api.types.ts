@@ -14,4 +14,5 @@ export interface Order {
   status: "pending" | "picked" | "delivered" | "cancelled";
   createdAt: string;
   updatedAt: string;
+  college: "PU" | "PTU";
 }

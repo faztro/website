@@ -17,6 +17,7 @@ const formSchema = z.object({
   items: z.string().min(5, "Please provide more details about the items"),
   pickup: z.string().min(10, "Please provide a complete pickup address"),
   delivery: z.string().min(10, "Please provide a complete delivery address"),
+  college: z.string().min(1, "Please select your college"),
 });
 
 type FormData = z.infer<typeof formSchema>;
@@ -166,6 +167,28 @@ export default function ContactSection() {
                   className="w-full px-4 py-2 rounded-xl border border-gray-300 focus:ring-2 focus:ring-[#00AFA1] focus:border-transparent outline-none"
                   placeholder="Food, Grocery, Medicine, Gift, Daily Essentials, Printouts and etc..."
                 />
+                {errors.items && (
+                  <p className="mt-1 text-sm text-red-600">
+                    {errors.items.message}
+                  </p>
+                )}
+              </div>
+
+              <div>
+                <label
+                  htmlFor="college"
+                  className="block text-sm font-medium text-gray-700 mb-1"
+                >
+                  College
+                </label>
+                <select
+                  id="college"
+                  {...register("college")}
+                  className="w-full px-4 py-2 rounded-xl border border-gray-300 focus:ring-2 focus:ring-[#00AFA1] focus:border-transparent outline-none"
+                >
+                  <option value="PU">PU</option>
+                  <option value="PTU">PTU</option>
+                </select>
                 {errors.items && (
                   <p className="mt-1 text-sm text-red-600">
                     {errors.items.message}
