@@ -166,7 +166,7 @@ export default function Home() {
 
   return (
     <div className="min-h-screen bg-[#FAFAFA] w-full relative">
-      <PromoDialog isOpen={isPromoOpen} setIsOpen={setIsPromoOpen} />
+      {/* <PromoDialog isOpen={isPromoOpen} setIsOpen={setIsPromoOpen} /> */}
       {/* Floating Navigation */}
       <motion.nav
         initial={{ y: -100 }}
